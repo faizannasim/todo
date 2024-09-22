@@ -1,16 +1,31 @@
+
+import './App.css';
 import React from 'react'
-import "./App.css"
-import Navigation from './Component/Navigation'
-import Hero from './Component/Hero'
+import Navbar from './Component/Navbar'
+import Hero from './Component/Hero';
+import About from './Component/About';
+import Service from './Component/Service';
+import Project from './Component/Project';
+import Contact from './Component/Contact';
+import Footer from './Component/Footer';
+
+
+
 
 const App = () => {
-    return (
-        <div>
-           <Navigation />
-           <Hero/>
-        </div>
-    )
+  return (
+    <div>
+     <Navbar />
+     <Hero />
+     <About />
+     <Hero />
+     <Service />
+     <Project />
+     <Contact />
+     <Footer />
+
+    </div>
+
+  )
 }
-
-
-export default App
+export default App;
