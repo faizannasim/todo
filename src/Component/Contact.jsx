@@ -1,6 +1,20 @@
 import React, { useState } from 'react';
-import emailjs from 'emailjs-com'; // Ensure you have this package installed
+import emailjs from 'emailjs-com'; 
 import { FaEnvelope, FaMapMarkedAlt, FaPhone } from 'react-icons/fa';
+
+const contact = {
+  name: "Contact Me",
+  section: [
+    {
+      name: "lets talk",
+      description: "I'm open to discussing web development projects or partnership opportunities",
+      link: "faizannasim59@gmail.com",
+      number: "7532053343", 
+      location: "Delhi",      
+      button:"Send"
+    }
+  ]
+}
 
 const Contact = () => {
   const [name, setName] = useState('');
@@ -8,10 +22,10 @@ const Contact = () => {
   const [message, setMessage] = useState('');
   const [showAlert, setShowAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
-  const [emailError, setEmailError] = useState(''); // State for email error message
-
+  const [emailError, setEmailError] = useState('');
+  
   const isValidEmail = (email) => {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Simple email regex
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
   };
 
@@ -20,14 +34,14 @@ const Contact = () => {
 
     if (!isValidEmail(email)) {
       setEmailError("Please enter a valid email address.");
-      return; // Prevent sending email if email is invalid
+      return;
     }
 
-    setEmailError(''); // Clear email error if valid
+    setEmailError('');
 
     const serviceId = "service_k4f2qfo";
     const templateId = "template_ufxgv8n";
-    const publicKey = "q-HvseK2-sN1t1rIW"; // Replace with your actual public key
+    const publicKey = "q-HvseK2-sN1t1rIW";
 
     const templateParams = {
       from_name: name,
@@ -58,29 +72,33 @@ const Contact = () => {
       });
   };
 
-  return (
+  return (  
     <div className="bg-black text-white py-20" id="contact">
       <div className="container mx-auto px-8 md:px-16 lg:px-24">
-        <h2 className="text-4xl font-bold text-center mb-12">Contact Me</h2>
+        <h2 className="text-4xl font-bold text-center mb-12">{contact.name}</h2>
         <div className="flex flex-col md:flex-row items-center md:space-x-12">
-          <div className="flex-1">
-            <h3 className='text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 mb-4'>Let's Talk</h3>
-            <p>I'm open to discussing web development projects or partnership opportunities.</p>
-            <div className='mb-4 mt-8'>
-              <FaEnvelope className='inline-block text-green-400 mr-2' />
-              <a href="mailto:faizannasim59@gmail.com" className='hover:underline'>
-                faizannasim59@gmail.com
-              </a>
+          {contact.section.map((section, index) => (
+            <div key={index} className="flex-1">
+              <h3 className='text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 mb-4'>
+                {section.name}
+              </h3>
+              <p>{section.description}</p>
+              <div className='mb-4 mt-8'>
+                <FaEnvelope className='inline-block text-green-400 mr-2' />
+                <a href={section.link} className='hover:underline'>
+                  {section.link}
+                </a>
+              </div>
+              <div className='mb-4'>
+                <FaPhone className='inline-block text-green-400 mr-2' />
+                <span>{section.number}</span>
+              </div>
+              <div className='mb-4'>
+                <FaMapMarkedAlt className='inline-block text-green-400 mr-2' />
+                <span>{section.location}</span>
+              </div>
             </div>
-            <div className='mb-4'>
-              <FaPhone className='inline-block text-green-400 mr-2' />
-              <span>+7532053343</span>
-            </div>
-            <div className='mb-4'>
-              <FaMapMarkedAlt className='inline-block text-green-400 mr-2' />
-              <span>Delhi</span>
-            </div>
-          </div>
+          ))}
           <div className='flex-1 w-full'>
             <form onSubmit={handleSubmit} className='space-y-4'>
               <div>
@@ -100,7 +118,7 @@ const Contact = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   className='w-full p-2 rounded bg-gray-800 border border-gray-600 focus:outline-none focus:border-green-400'
                   placeholder='Enter Your Email' />
-                {emailError && <p className="text-red-500 text-sm mt-1">{emailError}</p>} {/* Email error message */}
+                {emailError && <p className="text-red-500 text-sm mt-1">{emailError}</p>} 
               </div>
               <div>
                 <label htmlFor="message" className='block mb-2'>Message</label>
@@ -132,4 +150,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default Contact;  
