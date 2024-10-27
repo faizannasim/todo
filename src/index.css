@@ -528,11 +528,12 @@ header {
   justify-content: center;
   margin-top: 5px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  background-color: #dc3545;
+  background-color: #000000;
   display: flex; /* Use flexbox for alignment */
   height: 60px;
   border: 3px solid rgb(30, 29, 29);
-  border-radius: 10px 10px;
+  border-radius: 19px 19px;
+  color: white;
 }
 
 .navbar h1 {
@@ -544,23 +545,25 @@ header {
 
 .footer {
   border: 3px solid rgb(30, 29, 29);
-  border-radius: 10px 10px;
+  border-radius: 19px 19px;
   width: 100%;
   margin-top: 50px;
   height: 60px;
   font-weight: 900;
   font-size: 20px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  background-color: #dc3545;
+ background-color: #0c0c0c;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
 }
 
 .p {
-  display: flex;
+  display: flex #dc3545;; 
   align-items: center;
   justify-content: center;
   margin: 0;
 }
+
 
