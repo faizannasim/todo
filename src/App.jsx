@@ -13,9 +13,11 @@
 //import Contact from './Component/Contact';
 //import Footer from './Component/Footer';
 
-import Todoheader from "../Todoheader";
 import Todo from "./Component/Todo";
 import TodoFooter from "./Component/TodoFooter";
+import Todoheader from "./Component/Todoheader";
+
+
 
 
 
@@ -27,9 +29,10 @@ import TodoFooter from "./Component/TodoFooter";
 const App = () => {
   return (
     <div>
-     <Todoheader />
-     <Todo />
-     <TodoFooter />
+    <Todoheader />
+    <Todo/>
+    <TodoFooter/>
+
     </div>
 
 
